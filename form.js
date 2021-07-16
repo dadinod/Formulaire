@@ -9,16 +9,16 @@ function identity(){
     ident.maxLength = 25;
 }
 
-(function validateMdp() {
-    var mdp = document.getElementById("mdp");
-    var security = 0;
+// (function validateMdp() {
+//     var mdp = document.getElementById("mdp");
+//     var security = 0;
 
-    if (security == 1){
-        mdp.style.borderColor = 'red';
-    } else if (security == 2){
-        mdp.style.borderColor = 'orange';
-    }
-})();
+//     if (security == 1){
+//         mdp.style.borderColor = 'red';
+//     } else if (security == 2){
+//         mdp.style.borderColor = 'orange';
+//     }
+// })();
 
 function confirmeMdp() {
     var confmdp = document.getElementById("confmdp");
@@ -40,27 +40,27 @@ function confirmeMdp() {
     return error;
 })();
 
-function validateEmail() {
-    var email = document.getElementById("email");
-    var error = "";
-    var temail = trim(email.value); // value of field with whitespace trimmed off
-    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
-    var illegalChars = /[\(\)\<\>\,\;\:\\\"\[\]]/;
+// function validateEmail() {
+//     var email = document.getElementById("email");
+//     var error = "";
+//     var temail = trim(email.value); // value of field with whitespace trimmed off
+//     var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+//     var illegalChars = /[\(\)\<\>\,\;\:\\\"\[\]]/;
 
-    if (email.value == "") {
-        email.style.borderColor = 'Red';
-        var error = "2";
-    } else if (!emailFilter.test(temail)) { //test email for illegal characters
-        email.style.borderColor = 'Red';
-        var error = "3";
-    } else if (email.value.match(illegalChars)) {
-        email.style.borderColor = 'Red';
-        var error = "4";
-    } else {
-        email.style.borderColor = 'initial';
-    }
-    return error;
-}
+//     if (email.value == "") {
+//         email.style.borderColor = 'Red';
+//         var error = "2";
+//     } else if (!emailFilter.test(temail)) { //test email for illegal characters
+//         email.style.borderColor = 'Red';
+//         var error = "3";
+//     } else if (email.value.match(illegalChars)) {
+//         email.style.borderColor = 'Red';
+//         var error = "4";
+//     } else {
+//         email.style.borderColor = 'initial';
+//     }
+//     return error;
+// }
 
 //     else if (mdp.value.length >= 5){
 //         security ++;

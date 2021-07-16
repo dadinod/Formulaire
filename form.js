@@ -1,4 +1,3 @@
-
 function identity(){
     var ident = document.getElementById("ident");
     var compte = document.getElementById("compte");
@@ -8,17 +7,6 @@ function identity(){
     compte.value = [a+'/'+b];
     ident.maxLength = 25;
 }
-
-// (function validateMdp() {
-//     var mdp = document.getElementById("mdp");
-//     var security = 0;
-
-//     if (security == 1){
-//         mdp.style.borderColor = 'red';
-//     } else if (security == 2){
-//         mdp.style.borderColor = 'orange';
-//     }
-// })();
 
 function confirmeMdp() {
     var confmdp = document.getElementById("confmdp");
@@ -61,6 +49,19 @@ function confirmeMdp() {
 //     }
 //     return error;
 // }
+
+// VALIDATE MDP-------------------------------------------------
+
+// (function validateMdp() {
+//     var mdp = document.getElementById("mdp");
+//     var security = 0;
+
+//     if (security == 1){
+//         mdp.style.borderColor = 'red';
+//     } else if (security == 2){
+//         mdp.style.borderColor = 'orange';
+//     }
+// })();
 
 //     else if (mdp.value.length >= 5){
 //         security ++;

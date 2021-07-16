@@ -15,30 +15,33 @@
     <div id="container">
         <div id="content">
             <form action="">
-                <div id="ident">
-                    <label for="Identifiant"></label>
-                    <input type="text">
+                <div>
+                    <label for="">Identifiant</label>
+                    <input type="text" id="ident" onkeyup="function(a,b)">
+                    <input type="text" id="compte">
                 </div>
-                <div id="mail" class="top15">
+                <div class="top15">
                     <label for="">Mail</label>
-                    <input type="email" name="" id="">
+                    <input id="mail" type="email" name="" id="">
                 </div>
-                <div id="mdp" class="top15">
+                <div class="top15">
                     <label for="">Mot de passe</label>
-                    <input type="password">
+                    <input id="mdp" type="text">
                 </div>
-                <div id=" conf_mdp" class="top15">
+                <div class="top15">
                     <label for="">Confirmation mot de passe</label>
-                    <input type="password">
+                    <input id=" conf_mdp" type="text">
                 </div>
                 <div id="gender" class="top15">
                     <label for="">Genre</label>
                     <input class="check" type="radio" name="" id="">
                     <input class="check" type="radio" name="" id="">
                 </div>
-                <button type="submit"></button>
+                <button type="submit">Envoyer</button>
             </form>
         </div>
     </div>
+
+    <script type="text/javascript" src="form.js"></script>
 </body>
 </html>

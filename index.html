@@ -14,30 +14,36 @@
     </header>
     <div id="container">
         <div id="content">
-            <form action="">
+            <form id="inscription" action="" method="">
                 <div>
                     <label for="">Identifiant</label>
-                    <input type="text" id="ident" onkeyup="function(a,b)">
-                    <input type="text" id="compte">
+                    <input type="text" id="ident" onkeydown="identity()" required>
+                    <input type="text" id="compte" disabled="disabled">
                 </div>
                 <div class="top15">
                     <label for="">Mail</label>
-                    <input id="mail" type="email" name="" id="">
+                    <input id="email" type="email" name="email" onkeyup="validateEmail()" required>
                 </div>
                 <div class="top15">
                     <label for="">Mot de passe</label>
-                    <input id="mdp" type="text">
+                    <input id="mdp" type="text"  >
                 </div>
                 <div class="top15">
                     <label for="">Confirmation mot de passe</label>
-                    <input id=" conf_mdp" type="text">
+                    <input id="confmdp" type="text" onkeydown="confirmeMdp()" required>
                 </div>
-                <div id="gender" class="top15">
-                    <label for="">Genre</label>
-                    <input class="check" type="radio" name="" id="">
-                    <input class="check" type="radio" name="" id="">
+                <div id="gender" class="top15">Genre
+                    <div class="genre top15 overflow">
+                        <label  class="check top15">Homme</label>
+                        <input id="men" type="radio" name="gen" class="radio"  required>
+                    </div>
+                    <div class="genre top15 overflow">
+                        <label  class="check top15">Femme</label>
+                        <input id="women" type="radio" name="gen" class="top15 radio"  required>
+                    </div>
+                    
                 </div>
-                <button type="submit">Envoyer</button>
+                <button id="submit" type="submit" class="top15">Envoyer</button>
             </form>
         </div>
     </div>

@@ -1,4 +1,6 @@
 *{
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -9,9 +11,13 @@ ul,li,figure,h1,h2,h3,h4,h5,h6,a,p{
 }
 
 html{
-	font-family: Frutiger Next LT, sans-serif;	
+	font-family: Frutiger Next LT, sans-serif;
+    width: 100%;
+    
 }
-
+body{
+    width: 100%;
+}
 .overflow{
     overflow: hidden;
 }
@@ -23,41 +29,58 @@ html{
 .alignd{
     float: right;
 }
-
-body{
-    width: 1200px;
-    height: 100%;
-    margin: 0 auto;
+.top15{
+    margin-top: 15px;
 }
 header{
     width: 100%;
     height: 100px;
-    background-color: chocolate;
+    background-color: rgb(59, 17, 87);
     color: #fff;
     text-align: center;
     line-height: 100px;
 }
 #container{
-    margin-top: 120px;
+    width: 1200px;
+    margin: 120px auto 0 auto;
 }
 form{
-    border: chocolate solid 3px;
+    border: rgb(59, 17, 87) solid 3px;
+    border-radius: 2%;
     width: 400px;
     margin: 0 auto;
     padding: 2%;
 }
-.top15{
-    margin-top: 15px;
+div{
+    width: 100%;
 }
 input{
     width: 100%;
     height: 30px;
+    border-radius: 5px;
+    outline: none !important;
+}
+input:focus{
+    outline: none !important;
+}
+span{
+    width: 100%;
+}
+fieldset{
+    margin-top: 5px;
+    padding: 10px;
+    border: none;
 }
 .genre{
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+.genre label{    
+    font-weight: initial;
 }
 .check{
-    width: 100%;
+    
     text-align: center;
 }
 #compte{
@@ -67,26 +90,59 @@ input{
     margin-top: 3px;
     outline: none;
 }
+#gender{
+    font-weight: bold;
+}
 .radio{
     width: 10%;
-    height: 20px;
-    margin-right: 50%;
-    float: right;
+    height: 15px;
     background-color: #fff;
 }
-#submit{
+button{
     width: 150px;
     height: 40px;
-    font-size: 98%;
-    background-color: chocolate;
+    font-size: 120%;
+    font-weight: bold;
+    background-color: rgb(59, 17, 87);
     color: #fff;
     margin-top: 40px;
 }
-.overflow{
-    overflow: hidden;
+button :hover{
+    background-color: chocolate !important;
 }
 label{
     height: 30px;
     line-height: 30px;
     font-weight: bold;
+}
+.help-block{
+    width: 100%;
+    height: 30px;
+}
+.bg-bigdanger{
+    background-color: red;
+    color: #fff;
+}
+.bg-danger{
+    background-color: orange;
+    color: #fff;
+}
+.bg-warning{
+    background-color: purple;
+    color: #fff;
+}
+.bg-success{
+    background-color: blue;
+    color: #fff;
+}
+.bg-successfull{
+    background-color: rgb(70, 224, 24);
+    color: #fff;
+    
+}
+
+.mdpc{
+    margin-top: 5px;
+    text-align: center;
+    height: 5px;
 }

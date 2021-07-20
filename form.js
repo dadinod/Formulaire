@@ -1,24 +1,32 @@
+
+var security = 0 ;
+
 function identity(){
     var ident = document.getElementById("ident");
     var compte = document.getElementById("compte");
     var a = ident.value.length;
     var b = 25;
     
+    if (ident.value.length > 25){
+        a = 25;
+    }
     compte.value = [a+'/'+b];
-    ident.maxLength = 25;
 }
 
 function confirmeMdp() {
     var confmdp = document.getElementById("confmdp");
+    var mdp = document.getElementById("mdp");
     
-    if (confmdp.value != mdp.value){
+    if (confmdp.value !== mdp.value){
+        console.log(confmdp.value)
+        console.log(mdp.value)
         confmdp.style.borderColor = 'red';
     } else{
         confmdp.style.borderColor = 'green';
     }
 }
 
-(function validateGender(gen) {
+function validateGender(gen) {
     if ((inscription.gen[0].checked == false) 
     && (inscription.gen[1].checked == false)) {
         
@@ -26,90 +34,103 @@ function confirmeMdp() {
         
     }
     return error;
-})();
+}
 
-// function validateEmail() {
-//     var email = document.getElementById("email");
-//     var error = "";
-//     var temail = trim(email.value); // value of field with whitespace trimmed off
-//     var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
-//     var illegalChars = /[\(\)\<\>\,\;\:\\\"\[\]]/;
+ function Submit(){ 
+ 
+     if (ident.value == "")                                  
+     { 
+         alert("Mettez votre nom."); 
+         name.focus(); 
+         return false; 
+     }      
+     if (email.value == "")                                   
+     { 
+         alert("Mettez une adresse email valide."); 
+         email.focus(); 
+         return false; 
+     }    
+    //  if (email.value.indexOf("@", 0) < 0)                 
+    //  { 
+    //      alert("Mettez une adresse email valide."); 
+    //      email.focus(); 
+    //      return false; 
+    //  }    
+    //  if (email.value.indexOf(".", 0) < 0)                 
+    //  { 
+    //      alert("Mettez une adresse email valide."); 
+    //      email.focus(); 
+    //      return false; 
+    //  } 
+     if (mdp.value == "")                        
+     { 
+         alert("Saisissez votre mot de passe"); 
+         mdp.focus(); 
+         return false; 
+     }
+     if (confmdp.value !== mdp.value)                        
+     { 
+         alert("Confirmer votre mot passe"); 
+         confmdp.focus(); 
+         return false; 
+     } 
+     if (confmdp.value == "")                        
+     { 
+         alert("Confirmer votre mot passe"); 
+         confmdp.focus(); 
+         return false; 
+     }
+ }
+ 
 
-//     if (email.value == "") {
-//         email.style.borderColor = 'Red';
-//         var error = "2";
-//     } else if (!emailFilter.test(temail)) { //test email for illegal characters
-//         email.style.borderColor = 'Red';
-//         var error = "3";
-//     } else if (email.value.match(illegalChars)) {
-//         email.style.borderColor = 'Red';
-//         var error = "4";
-//     } else {
-//         email.style.borderColor = 'initial';
-//     }
-//     return error;
-// }
+ function isGood(mdp) {
+    var password_strength = document.getElementById("password-text");
 
-// VALIDATE MDP-------------------------------------------------
+    //TextBox left blank.
+    if (mdp.length == 0) {
+      password_strength.innerHTML = "";
+      return;
+    }
 
-// (function validateMdp() {
-//     var mdp = document.getElementById("mdp");
-//     var security = 0;
+    //Regular Expressions.
+    var regex = new Array();
+    regex.push("[A-Z]"); //Uppercase Alphabet.
+    regex.push("[a-z]"); //Lowercase Alphabet.
+    regex.push("[0-9]"); //Digit.
+    regex.push("[$@$!%*#?&]"); //Special Character.
+    regex.push("^[a-zA-Z0-9$@$!%*#?&]{5,}$"); //Special Character.
 
-//     if (security == 1){
-//         mdp.style.borderColor = 'red';
-//     } else if (security == 2){
-//         mdp.style.borderColor = 'orange';
-//     }
-// })();
+    var passed = 0;
 
-//     else if (mdp.value.length >= 5){
-//         security ++;
-//     }
+    //Validate for each Regular Expression.
+    for (var i = 0; i < regex.length; i++) {
+      if (new RegExp(regex[i]).test(mdp)) {
+        passed++;
+      }
+    }
 
-//     // if (mdp.value.match( /[^a-zA-Z\d]/g)){
-//     //     mdp.style.borderColor = 'red';
-//     // }
-//     //  else if (mdp.value.length >= 5){
-//     //     mdp.style.borderColor = 'orange';
-//     // } else if (mdp.value.length >= 5 && mdp.value.match(/[0-9]/g)){
-//     //     mdp.style.borderColor = 'blue';
-//     // } else if (mdp.value.match( /[0-9]/g) && mdp.value.match( /[A-Z]/g) && mdp.value.match( /[^a-zA-Z\d]/g) && mdp.value.length < 5){
-//     //     mdp.style.borderColor = 'green';
-//     // } else{
-//     //     mdp.style.borderColor = 'black';
-//     // }
+    //Display status.
+    var strength = "";
+    switch (passed) {
+      case 0:
+      case 1:
+        strength = " <div class='mdpc bg-bigdanger' style='width: 20%'></div>";
+       
+        break;
+      case 2:
+        strength = "<div class='mdpc bg-danger' style='width: 40%'></div>";
+        break;
+      case 3:
+        strength = "<div class='mdpc bg-warning' style='width: 60%'></div>";
+        break;
+      case 4:
+        strength = "<div class='mdpc bg-success' style='width: 80%'></div>";
+        break;
+        case 5:
+        strength = "<div class='mdpc bg-successfull' style='width: 100%'></div>";
+        break;
 
-//     // (function lenghMdp(){
-    
-//     //  else if (mdp.value.length < 5){
-        
-//     //         intensity += 1;
-//     //      }
+    }
+    password_strength.innerHTML = strength;
 
-//     // })();
-
-//     // (function numMdp(){
-    
-//     //     if (mdp.value.match( /[0-9]/g)){
-//     //         intensity += 1;
-//     //     }
-//     // })();
-
-//     // (function lmajMdp(){
-    
-//     //     if (mdp.value.match( /[A-Z]/g)){
-        
-//     //         intensity += 1;
-//     //     }
-//     // })();
-
-//     // (function speMdp(){
-    
-//     //     if (mdp.value.match( /[^a-zA-Z\d]/g)){
-        
-//     //         intensity += 1;
-//     //     }
-//     // })();
-// }
-
+  }

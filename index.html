@@ -12,39 +12,42 @@
         <h1>Un chouette formulaire pas si chouette</h1>
     </header>
     <div id="container">
-        <div id="content">
-            <form id="inscription" action="" method="">
+            <form id="inscription" action="" onsubmit="Submit()" method="">
                 <div>
-                    <label for="">Identifiant</label>
-                    <input type="text" id="ident" onkeydown="identity()" required>
+                    <label for="ident">Identifiant</label>
+                    <input type="text" id="ident" name="ident" onkeyup="identity()" maxlength="25" autocomplete="off" required>
                     <input type="text" id="compte" readonly = "readonly">
                 </div>
                 <div class="">
-                    <label for="">Mail</label>
+                    <label for="email">Mail</label>
                     <input id="email" type="email" name="email" onkeyup="validateEmail()" required>
                 </div>
                 <div class="top15">
-                    <label for="">Mot de passe</label>
-                    <input id="mdp" type="text"  >
+                    <label for="mdp">Mot de passe</label>
+                    <input id="mdp" type="text"  name="mdp" onkeyup="isGood(this.value)" autocomplete="off" required>
+                    <small class="help-block" id="password-text"></small>
                 </div>
                 <div class="top15">
-                    <label for="">Confirmation mot de passe</label>
-                    <input id="confmdp" type="text" onkeydown="confirmeMdp()" required>
+                    <label for="confmdp">Confirmation mot de passe</label>
+                    <input id="confmdp" type="text" name="confmdp" onkeyup="confirmeMdp()" required>
                 </div>
                 <div id="gender" class="top15">Genre
-                    <div class="genre top15 overflow">
-                        <label  class="check top15">Homme</label>
+                    
+                <fieldset>
+                    <div class="genre  overflow">
                         <input id="men" type="radio" name="gen" class="radio"  required>
+                        <label for="men" class="check ">Homme</label>
                     </div>
-                    <div class="genre top15 overflow">
-                        <label  class="check top15">Femme</label>
-                        <input id="women" type="radio" name="gen" class="top15 radio"  required>
+                    <div class="genre  overflow">
+                        <input id="women" type="radio" name="gen" class="radio"  required>
+                        <label for="women" class="check ">Femme</label>
+                        
                     </div>
+                </fieldset>
                     
                 </div>
-                <button id="submit" type="submit" class="">Envoyer</button>
+                <button id="submit" type="submit" class="" onclick="Submit()">Envoyer</button>
             </form>
-        </div>
     </div>
 
     <script type="text/javascript" src="form.js"></script>
